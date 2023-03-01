@@ -1,14 +1,17 @@
 FROM rust as build
 
 ENV LODESTONECOREVERSION=v0.4.2
-WORKDIR /app
+ENV LODESTONECOREZIP=0.4.2
+
+WORKDIR /
 # copy over project files
 RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONECOREVERSION}.zip \
     && unzip ${LODESTONECOREVERSION}.zip \
-    && mv lodestone_core-${LODESTONECOREVERSION}/* /app \
+    && mv lodestone_core-${LODESTONECOREZIP}/* /app \
     && chmod +x /app
-
 # build app using 'release' profile
+
+WORKDIR /app
 RUN cargo build --release
 
 FROM debian:bullseye-slim as production
