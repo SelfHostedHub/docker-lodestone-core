@@ -7,8 +7,8 @@ WORKDIR /app
 WORKDIR /
 # copy over project files
 RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONE-CORE-VERSION}.zip \
-    && unzip ${ROADMAPVERSION}.zip \
-    && mv roadmap-${ROADMAPVERSION}/* /app \
+    && unzip ${LODESTONE-CORE-VERSION}.zip \
+    && mv roadmap-${LODESTONE-CORE-VERSION}/* /app \
     && chmod +x /app
 
 WORKDIR /app
