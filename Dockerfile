@@ -1,14 +1,14 @@
 FROM rust as build
 
-ENV LODESTONE-CORE-VERSION=v0.4.2
+ENV LODESTONECOREVERSION=v0.4.2
 # create and enter app directory
 WORKDIR /app
 
 WORKDIR /
 # copy over project files
-RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONE-CORE-VERSION}.zip \
-    && unzip ${LODESTONE-CORE-VERSION}.zip \
-    && mv lodestone_core-${LODESTONE-CORE-VERSION}/* /app \
+RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONECOREVERSION}.zip \
+    && unzip ${LODESTONECOREVERSION}.zip \
+    && mv lodestone_core-${LODESTONECOREVERSION}/* /app \
     && chmod +x /app
 
 WORKDIR /app
