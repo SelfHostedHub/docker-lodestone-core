@@ -7,7 +7,7 @@ WORKDIR /app
 # copy over project files
 RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONECOREVERSION}.zip \
     && unzip ${LODESTONECOREVERSION}.zip \
-    && mv lodestone_core-${LODESTONECOREZIP}/* ../ 
+    && mv lodestone_core-${LODESTONECOREZIP}/* ./ 
 
 # build app using 'release' profile
 
