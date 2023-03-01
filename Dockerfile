@@ -1,14 +1,13 @@
 FROM rust as build
 
 ENV LODESTONECOREVERSION=v0.4.2
-
+WORKDIR /app
 # copy over project files
 RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONECOREVERSION}.zip \
     && unzip ${LODESTONECOREVERSION}.zip \
     && mv lodestone_core-${LODESTONECOREVERSION}/* /app \
     && chmod +x /app
 
-WORKDIR /app
 # build app using 'release' profile
 RUN cargo build --release
 
