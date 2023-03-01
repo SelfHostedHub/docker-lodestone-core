@@ -1,10 +1,7 @@
 FROM rust as build
 
 ENV LODESTONECOREVERSION=v0.4.2
-# create and enter app directory
-WORKDIR /app
 
-WORKDIR /
 # copy over project files
 RUN wget https://github.com/Lodestone-Team/lodestone_core/archive/refs/tags/${LODESTONECOREVERSION}.zip \
     && unzip ${LODESTONECOREVERSION}.zip \
